@@ -1,0 +1,28 @@
+tab image {
+  height: 16px;
+  width: 16px;
+}
+
+.logo {
+  margin-right: 12px;
+}
+
+.title {
+  font-size: 25px;
+  padding-top: 24px;
+}
+
+.credit {
+}
+
+.side-label {
+  padding-top: 4px;
+}
+
+.left-spaced {
+  padding-left: 16px;
+}
+
+listitem.inactive {
+  color: #888;
+}

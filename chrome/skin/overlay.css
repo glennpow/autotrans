@@ -1,0 +1,5 @@
+statusbarpanel#autotrans-statusicon {
+  -moz-box-align: center;
+  padding: 0px 4px 0px 4px;
+  cursor: pointer;
+}

@@ -1,0 +1,45 @@
+<!ENTITY prefwindow.title "Autotrans preferences">
+<!ENTITY pane1.title "Autotrans preferences">
+<!ENTITY active.label "Active">
+<!ENTITY active.hint "This daemon will receive torrents">
+<!ENTITY url.label "Daemon URL">
+<!ENTITY url.hint "Example: http://192.168.1.2:9091/transmission/rpc">
+<!ENTITY url.accesskey "U">
+<!ENTITY maxactive.label "Maximum active torrents">
+<!ENTITY maxactive.hint "After which torrents will be added in paused state.  '0' for no max.">
+<!ENTITY maxactive.accesskey "T">
+<!ENTITY addpaused.label "Pause all new torrents">
+<!ENTITY addpaused.hint "They must be manually started at a later point">
+<!ENTITY addpaused.accesskey "Z">
+<!ENTITY timeout.label "Timeout for requests">
+<!ENTITY timeout.hint "In milliseconds">
+<!ENTITY timeout.accesskey "T">
+<!ENTITY attempts.label "Attempts per request">
+<!ENTITY attempts.hint "To account for timeouts, etc.">
+<!ENTITY attempts.accesskey "A">
+<!ENTITY username.label "Username">
+<!ENTITY username.hint "Leave blank if authentication is disabled">
+<!ENTITY username.accesskey "N">
+<!ENTITY password.label "Password">
+<!ENTITY password.hint "Leave blank if authentication is disabled">
+<!ENTITY password.accesskey "P">
+<!ENTITY extfilter.label "Smart link-filtering">
+<!ENTITY extfilter.hint "Only show menu item if file's extension or mime-type indicate a torrent">
+<!ENTITY extfilter.accesskey "F">
+<!ENTITY metainfo.label "Download and send Metainfo">
+<!ENTITY metainfo.hint "Download and send the torrent file contents instead of the URL">
+<!ENTITY metainfo.accesskey "M">
+<!ENTITY menuicon.label "Show icon in context menu">
+<!ENTITY menuicon.hint "Next to menu item's text">
+<!ENTITY menuicon.accesskey "I">
+<!ENTITY statusicon.label "Show icon in status bar">
+<!ENTITY statusicon.hint "Clicking the icon will bring you to your Transmission Web UI">
+<!ENTITY statusicon.accesskey "S">
+<!ENTITY gotomenu.label "Show 'View Torrents' in context menu">
+<!ENTITY gotomenu.hint "Clicking the item will bring you to your Transmission Web UI">
+<!ENTITY gotomenu.accesskey "I">
+<!ENTITY debug.label "Debug Mode">
+<!ENTITY debug.hint "This will output debugging information to a file on the Desktop">
+<!ENTITY debug.accesskey "D">
+<!ENTITY about "About">
+<!ENTITY close "Close">

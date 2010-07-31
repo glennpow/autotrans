@@ -1,0 +1,4 @@
+content   autotrans                 chrome/content/
+skin      autotrans   classic/1.0   chrome/skin/
+locale    autotrans   en-US         chrome/locale/en-US/
+overlay   chrome://browser/content/browser.xul   chrome://autotrans/content/ff-overlay.xul

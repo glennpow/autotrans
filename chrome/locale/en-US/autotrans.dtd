@@ -1,0 +1,4 @@
+<!ENTITY autotrans.label "Your localized menuitem">
+<!ENTITY autotransContext.addTorrent.label "Torrent It!">
+<!ENTITY autotransContext.addTorrent.accesskey "T">
+<!ENTITY autotransContext.gotoTorrents.label "View Torrents">

@@ -1,0 +1,9 @@
+pref("extensions.autotrans@glennpow.description", "chrome://autotrans/locale/autotrans.properties");
+pref("extensions.autotrans.timeout", 15000);
+pref("extensions.autotrans.attempts", 3);
+pref("extensions.autotrans.extfilter", true);
+pref("extensions.autotrans.metainfo", false);
+pref("extensions.autotrans.menuicon", true);
+pref("extensions.autotrans.statusicon", true);
+pref("extensions.autotrans.gotomenu", true);
+pref("extensions.autotrans.debug", false);

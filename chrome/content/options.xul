@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ***** BEGIN LICENSE BLOCK *****
+  -   Version: MPL 1.1/GPL 2.0/LGPL 2.1
+  -
+  - The contents of this file are subject to the Mozilla Public License Version
+  - 1.1 (the "License"); you may not use this file except in compliance with
+  - the License. You may obtain a copy of the License at
+  - http://www.mozilla.org/MPL/
+  - 
+  - Software distributed under the License is distributed on an "AS IS" basis,
+  - WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+  - for the specific language governing rights and limitations under the
+  - License.
+  -
+  - The Original Code is Autotrans.
+  -
+  - The Initial Developer of the Original Code is
+  - Glenn Powell.
+  - Portions created by the Initial Developer are Copyright (C) 2009
+  - the Initial Developer. All Rights Reserved.
+  -
+  - Contributor(s):
+  -   Glenn Powell
+  -
+  - Alternatively, the contents of this file may be used under the terms of
+  - either the GNU General Public License Version 2 or later (the "GPL"), or
+  - the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+  - in which case the provisions of the GPL or the LGPL are applicable instead
+  - of those above. If you wish to allow use of your version of this file only
+  - under the terms of either the GPL or the LGPL, and not to allow others to
+  - use your version of this file under the terms of the MPL, indicate your
+  - decision by deleting the provisions above and replace them with the notice
+  - and other provisions required by the GPL or the LGPL. If you do not delete
+  - the provisions above, a recipient may use your version of this file under
+  - the terms of any one of the MPL, the GPL or the LGPL.
+  - 
+  - ***** END LICENSE BLOCK ***** -->
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://autotrans/skin/options.css" type="text/css"?>
+
+<!DOCTYPE prefwindow SYSTEM "chrome://autotrans/locale/prefwindow.dtd">
+<prefwindow id="autotransPreferences"
+  xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+  title="&prefwindow.title;">
+
+  <script src="glennpow.js"/>
+  <script src="authentication.js"/>
+  <script src="autotrans.js"/>
+  <script src="options.js"/>
+  
+  <prefpane id="pane1" label="&pane1.title;">
+    <preferences>
+      <preference id="timeout" name="extensions.autotrans.timeout" type="int"/>
+      <preference id="attempts" name="extensions.autotrans.attempts" type="int"/>
+      <preference id="extfilter" name="extensions.autotrans.extfilter" type="bool"/>
+      <preference id="metainfo" name="extensions.autotrans.metainfo" type="bool"/>
+      <preference id="menuicon" name="extensions.autotrans.menuicon" type="bool"/>
+      <preference id="statusicon" name="extensions.autotrans.statusicon" type="bool"/>
+      <preference id="gotomenu" name="extensions.autotrans.gotomenu" type="bool"/>
+      <preference id="debug" name="extensions.autotrans.debug" type="bool"/>
+    </preferences>
+    
+    <box orient="vertical">
+      <box orient="horizontal">
+        <image class="logo" src="autotrans.png"/>
+        <box orient="vertical">
+          <text class="title" value="Autotrans"/>
+          <text class="credit" value="a Glenn Powell thing"/>
+          <label href="http://groups.google.com/group/autotrans-firefox" class="text-link" value="Support website"/>
+          <label href="http://www.glennpow.com/me" class="text-link" value="About me"/>
+        </box>
+      </box>
+      <tabbox id="tabbox" selectedIndex="0">
+        <tabs>
+          <tab label="Daemons" image="chrome://autotrans/skin/daemons.png"/>
+          <tab label="Options" image="chrome://autotrans/skin/options.png"/>
+        </tabs>
+        <tabpanels>
+          <tabpanel>
+            <box orient="vertical">
+              <box orient="horizontal">
+                <box orient="vertical">
+                  <button id="add-daemon" label="+" oncommand="autotransOptions.onAddDaemon(event)"/>
+                  <button id="remove-daemon" label="-" oncommand="autotransOptions.onRemoveDaemon(event)"/>
+                </box>
+                
+                <listbox id="daemons-listbox" rows="4" width="350" onselect="autotransOptions.onSelectDaemon(event)">
+                </listbox>
+              </box>
+              
+              <hbox>
+                <label accesskey="&url.accesskey;" control="texturl" tooltiptext="&url.hint;">&url.label;</label>
+                <checkbox id="textactive" tabindex="1" oncommand="autotransOptions.onUpdateDaemon(event)" class="left-spaced"/>
+                <label control="textactive" tooltiptext="&active.hint;" class="side-label">&active.label;</label>
+              </hbox>
+              <textbox id="texturl" size="50" tabindex="2" onchange="autotransOptions.onUpdateDaemon(event)"/>
+              
+              <box orient="horizontal">
+                <box orient="vertical">
+                  <box orient="horizontal">
+                    <label accesskey="&username.accesskey;" control="textusername" tooltiptext="&username.hint;" class="side-label">&username.label;</label>
+                    <textbox id="textusername" tabindex="3" size="15" onchange="autotransOptions.onUpdateDaemon(event)"/>
+                  </box>
+
+                  <box orient="horizontal">
+                    <textbox id="textmaxactive" size="3" tabindex="5" onchange="autotransOptions.onUpdateDaemon(event)"/>
+                    <label accesskey="&maxactive.accesskey;" control="textmaxactive" tooltiptext="&maxactive.hint;" class="side-label">&maxactive.label;</label>
+                  </box>
+                </box>
+        
+                <box orient="vertical">
+                  <box orient="horizontal">
+                    <label accesskey="&password.accesskey;" control="textpassword" tooltiptext="&password.hint;" class="side-label">&password.label;</label>
+                    <textbox id="textpassword" size="15" tabindex="4" type="password" onchange="autotransOptions.onUpdateDaemon(event)"/>
+                  </box>
+
+                  <box orient="horizontal">
+                    <checkbox id="textaddpaused" tabindex="6" oncommand="autotransOptions.onUpdateDaemon(event)" class="left-spaced"/>
+                    <label accesskey="&addpaused.accesskey;" control="textaddpaused" tooltiptext="&addpaused.hint;" class="side-label">&addpaused.label;</label>
+                  </box>
+                </box>
+              </box>
+            </box>
+          </tabpanel>
+          <tabpanel>
+            <box orient="vertical">
+              <box orient="horizontal">
+                <box orient="horizontal">
+                  <textbox id="texttimeout" preference="timeout" size="5"/>
+                  <label accesskey="&timeout.accesskey;" control="texttimeout" tooltiptext="&timeout.hint;" class="side-label">&timeout.label;</label>
+                </box>
+        
+                <box orient="horizontal">
+                  <textbox id="textattempts" preference="attempts" size="3" class="left-spaced"/>
+                  <label accesskey="&attempts.accesskey;" control="textattempts" tooltiptext="&attempts.hint;" class="side-label">&attempts.label;</label>
+                </box>
+              </box>
+
+              <box orient="horizontal">
+                <checkbox id="textextfilter" preference="extfilter"/>
+                <label accesskey="&extfilter.accesskey;" control="textextfilter" tooltiptext="&extfilter.hint;" class="side-label">&extfilter.label;</label>
+              </box>
+
+              <box orient="horizontal">
+                <checkbox id="textmetainfo" preference="metainfo" disabled="false"/>
+                <label accesskey="&metainfo.accesskey;" control="textmetainfo" tooltiptext="&metainfo.hint;" class="side-label">&metainfo.label;</label>
+              </box>
+
+              <box orient="horizontal">
+                <box orient="horizontal">
+                  <checkbox id="textmenuicon" preference="menuicon"/>
+                  <label accesskey="&menuicon.accesskey;" control="textmenuicon" tooltiptext="&menuicon.hint;" class="side-label">&menuicon.label;</label>
+                </box>
+        
+                <box orient="horizontal">
+                  <checkbox id="textstatusicon" preference="statusicon" class="left-spaced"/>
+                  <label accesskey="&statusicon.accesskey;" control="textstatusicon" tooltiptext="&statusicon.hint;" class="side-label">&statusicon.label;</label>
+                </box>
+              </box>
+        
+              <box orient="horizontal">
+                <checkbox id="textgotomenu" preference="gotomenu"/>
+                <label accesskey="&gotomenu.accesskey;" control="textgotomenu" tooltiptext="&gotomenu.hint;" class="side-label">&gotomenu.label;</label>
+              </box>
+        
+              <box orient="horizontal">
+                <checkbox id="textdebug" preference="debug"/>
+                <label accesskey="&debug.accesskey;" control="textdebug" tooltiptext="&debug.hint;" class="side-label">&debug.label;</label>
+              </box>
+            </box>
+          </tabpanel>
+        </tabpanels>
+      </tabbox>
+    </box>
+
+    <separator class="thin"/>
+   
+    <hbox>
+      <spacer flex="1"/>
+      <hbox pack="end">
+        <button label="&close;" oncommand="window.close();"/>
+      </hbox>
+    </hbox>
+    <separator class="thin"/>  
+  </prefpane>
+</prefwindow>
